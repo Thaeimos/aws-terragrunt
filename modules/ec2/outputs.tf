@@ -1,5 +1,5 @@
 output "name" {
-  value = aws_instance.ec2_instance.name
+  value = aws_instance.ec2_instance.id
 }
 
 output "key_name" {
