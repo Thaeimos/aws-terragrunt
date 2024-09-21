@@ -13,12 +13,11 @@ resource "aws_organizations_organization" "organisation" {
 }
 
 module "assume_role_organisation_admin" {
-  source = "git::https://github.com/Thaeimos/aws-terragrunt.git//modules/utility/iam/create-role-with-assume"
+  source = "github.com/Thaeimos/aws-terragrunt.git//modules/utility/iam/create-role-with-assume"
 
   account_name            = "org"
   account_id              = data.aws_caller_identity.current.account_id
   assume_role_policy_json = data.aws_iam_policy_document.assume_from_organisation.json
   role                    = "Administrator"
   role_policy_arn         = "arn:aws:iam::aws:policy/AdministratorAccess"
-  tags                    = var.tags
 }
