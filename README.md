@@ -1,2 +1,0 @@
-# aws-terragrunt
-Terragrunt test
