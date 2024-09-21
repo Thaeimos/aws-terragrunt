@@ -1,5 +1,5 @@
 module "create_role" {
-  source = "https://github.com/Thaeimos/aws-terragrunt.git//modules/utility/iam/create-role"
+  source = "github.com/Thaeimos/aws-terragrunt.git//modules/utility/iam/create-role"
 
   account_name            = var.account_name
   assume_role_policy_json = var.assume_role_policy_json
@@ -9,7 +9,7 @@ module "create_role" {
 }
 
 module "assume_role" {
-  source = "https://github.com/Thaeimos/aws-terragrunt.git//modules/utility/iam/create-assume-role"
+  source = "github.com/Thaeimos/aws-terragrunt.git//modules/utility/iam/create-assume-role"
 
   account_name = var.account_name
   account_id   = var.account_id
