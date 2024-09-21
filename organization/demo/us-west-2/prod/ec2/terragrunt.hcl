@@ -52,6 +52,3 @@ inputs = {
   subnet_id       = dependency.vpc.outputs.public_subnets[0]
   security_groups = [dependency.security_group.outputs.security_group_id]
 }
-
-// BUCKET_NAME=$(aws s3 ls | grep -oE "kk-state-.+")
-// aws s3 ls s3://$BUCKET_NAME --recursive
