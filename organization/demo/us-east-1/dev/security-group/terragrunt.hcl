@@ -18,10 +18,9 @@ dependency "vpc" {
   }
 
   mock_outputs_allowed_terraform_commands = ["init", "validate", "plan"]
-  #mock_outputs_allowed_terraform_commands = ["validate", "init", "plan", "terragrunt-info", "show"]
 }
 
 inputs = {
-  name   = "KodeKloud-${include.root.account_vars.locals.account_name}-${include.root.region_vars.locals.aws_region}-${include.root.env_vars.locals.env}-security-group"
-  vpc_id = dependencies.vpc.outputs.vpc_id
+  name   = "KodeKloud-${include.root.locals.account_vars.locals.account_name}-${include.root.locals.region_vars.locals.aws_region}-${include.root.locals.env_vars.locals.env}-security-group"
+  vpc_id = dependency.vpc.outputs.vpc_id
 }
