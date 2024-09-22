@@ -2,6 +2,9 @@ locals {
   account_vars = read_terragrunt_config(find_in_parent_folders("account.hcl"))
   region_vars  = read_terragrunt_config(find_in_parent_folders("region.hcl"))
   env_vars     = read_terragrunt_config(find_in_parent_folders("env.hcl"))
+  org_vars     = read_terragrunt_config(find_in_parent_folders("organization.hcl"))
+  vpc_cidr     = "10.164.0.0/16"
+  number_azs   = 3
 }
 
 remote_state {
