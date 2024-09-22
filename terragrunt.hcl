@@ -4,7 +4,7 @@ locals {
   env_vars     = read_terragrunt_config(find_in_parent_folders("env.hcl"))
   org_vars     = read_terragrunt_config(find_in_parent_folders("organization.hcl"))
   vpc_cidr     = "10.164.0.0/16"
-  number_azs   = 3
+  number_azs   = ["a", "b", "c"]
 }
 
 remote_state {
