@@ -8,6 +8,6 @@ include "root" {
 }
 
 inputs = {
-  key_name           = "KodeKloud-${include.root.locals.account_vars.locals.account_name}-${include.root.locals.region_vars.locals.aws_region}-${include.root.locals.env_vars.locals.env}-key-pair"
+  key_name           = "${include.root.locals.org_vars.locals.aws_org}-${include.root.locals.account_vars.locals.account_name}-${include.root.locals.region_vars.locals.aws_region}-${include.root.locals.env_vars.locals.env}-key-pair"
   create_private_key = true
 }

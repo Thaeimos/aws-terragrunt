@@ -46,7 +46,7 @@ dependency "key_pair" {
 }
 
 inputs = {
-  name            = "KodeKloud-${include.root.locals.account_vars.locals.account_name}-${include.root.locals.region_vars.locals.aws_region}-${include.root.locals.env_vars.locals.env}-instance"
+  name            = "${include.root.locals.org_vars.locals.aws_org}-${include.root.locals.account_vars.locals.account_name}-${include.root.locals.region_vars.locals.aws_region}-${include.root.locals.env_vars.locals.env}-instance"
   ami             = ""
   key_name        = dependency.key_pair.outputs.key_pair_name
   subnet_id       = dependency.vpc.outputs.public_subnets[0]

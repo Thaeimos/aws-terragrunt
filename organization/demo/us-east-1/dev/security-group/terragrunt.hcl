@@ -21,6 +21,6 @@ dependency "vpc" {
 }
 
 inputs = {
-  name   = "KodeKloud-${include.root.locals.account_vars.locals.account_name}-${include.root.locals.region_vars.locals.aws_region}-${include.root.locals.env_vars.locals.env}-security-group"
+  name   = "${include.root.locals.org_vars.locals.aws_org}-${include.root.locals.account_vars.locals.account_name}-${include.root.locals.region_vars.locals.aws_region}-${include.root.locals.env_vars.locals.env}-security-group"
   vpc_id = dependency.vpc.outputs.vpc_id
 }
