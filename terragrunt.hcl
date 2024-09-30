@@ -1,8 +1,8 @@
 locals {
-  account_vars = read_terragrunt_config(find_in_parent_folders("account.hcl"))
-  region_vars  = read_terragrunt_config(find_in_parent_folders("region.hcl"))
-  env_vars     = read_terragrunt_config(find_in_parent_folders("env.hcl"))
-  org_vars     = read_terragrunt_config(find_in_parent_folders("organization.hcl"))
+  account_vars = try(read_terragrunt_config(find_in_parent_folders("account.hcl")), {})
+  region_vars  = try(read_terragrunt_config(find_in_parent_folders("region.hcl")), {})
+  env_vars     = try(read_terragrunt_config(find_in_parent_folders("env.hcl")), {})
+  org_vars     = try(read_terragrunt_config(find_in_parent_folders("organization.hcl")), {})
   vpc_cidr     = "10.164.0.0/16"
   number_azs   = ["a", "b", "c"]
 }
@@ -27,7 +27,7 @@ generate "provider" {
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
 provider "aws" {
-  region  = "${local.region_vars.locals.aws_region}"
+  region  = "${try(local.region_vars.locals.aws_region, "us-east-1")}"
 }
 EOF
 }
