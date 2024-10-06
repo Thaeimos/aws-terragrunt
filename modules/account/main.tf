@@ -1,4 +1,4 @@
-resource "aws_organizations_account" "dev" {
+resource "aws_organizations_account" "this" {
 
   name  = var.account_name
   email = var.account_email
@@ -16,4 +16,6 @@ resource "aws_organizations_account" "dev" {
   }
 
   parent_id = var.org_unit_id
+
+  role_name = "terragrunt-role"
 }
