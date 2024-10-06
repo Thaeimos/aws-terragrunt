@@ -8,6 +8,6 @@ include "root" {
 }
 
 inputs = {
-  org_unit_name  = basename(get_terragrunt_dir())
-  org_id   = include.root.locals.org_vars.locals.aws_org
+  org_unit_name = basename(get_terragrunt_dir())
+  org_id        = include.root.locals.org_vars.locals.aws_org
 }
